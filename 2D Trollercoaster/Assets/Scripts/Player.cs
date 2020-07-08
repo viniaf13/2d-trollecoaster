@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Player Parameters")]
-    [SerializeField] float moveSpeed = 5f;
+    [SerializeField] float moveSpeed = 400f;
     [SerializeField] float jumpSpeed = 5f;
 
     [Header("Body Elements")]
@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     private Collider2D bodyCollider;
     private Collider2D feetCollider;
 
+    private const float MOVEMENT_THRESHOLD = 0.01f;
+
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
@@ -28,9 +30,13 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        Jump();
+    }
+
+    private void FixedUpdate()
+    {
         HandleAnimation();
         Move();
-        Jump();
     }
 
     private void Move()
@@ -47,7 +53,6 @@ public class Player : MonoBehaviour
 
     private void HandleAnimation()
     {
-        
         bool playerHasYMovement = !IsOnGround();
         myAnimator.SetBool("isLanded", !playerHasYMovement);
         if (playerHasYMovement)
@@ -57,8 +62,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            bool playerHasXMovement = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
-            //bool playerHasXMovement = Mathf.Abs(myRigidBody.velocity.x) > 7f;
+            bool playerHasXMovement = Mathf.Abs(myRigidBody.velocity.x) > MOVEMENT_THRESHOLD;
             myAnimator.SetBool("isRunning", playerHasXMovement);
         }
     }
