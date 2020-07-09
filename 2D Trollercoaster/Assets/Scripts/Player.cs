@@ -21,8 +21,6 @@ public class Player : MonoBehaviour
     private Collider2D mybodyCollider;
     private Collider2D myfeetCollider;
 
-    private const float MOVEMENT_THRESHOLD = 0.01f;
-
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
@@ -66,7 +64,8 @@ public class Player : MonoBehaviour
     }
     private bool IsOnGround()
     {
-        return myfeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
+        return myfeetCollider.IsTouchingLayers(LayerMask.GetMask(
+            Constants.Layers.Ground));
     }
     private void HandleAnimation()
     {
@@ -79,7 +78,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            bool playerHasXMovement = Mathf.Abs(myRigidBody.velocity.x) > MOVEMENT_THRESHOLD;
+            bool playerHasXMovement = Mathf.Abs(myRigidBody.velocity.x) > Constants.Others.PlayerMovementThreshold;
             myAnimator.SetBool(Constants.Animations.Run, playerHasXMovement);
         }
     }

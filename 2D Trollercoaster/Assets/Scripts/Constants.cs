@@ -12,9 +12,14 @@ public static class Constants
         public const string Died = "died";
     }
 
+    public static class Layers
+    {
+        public const string Ground = "Ground";
+    }
+
     public static class Others
     {
-
+        public const float PlayerMovementThreshold = 0.01f;
     }
 
 
