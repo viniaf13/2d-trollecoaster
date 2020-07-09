@@ -16,6 +16,7 @@ public static class Constants
     {
         public const string Ground = "Ground";
         public const string Enemies = "Enemies";
+        public const string Background = "Background";
     }
 
     public static class Others

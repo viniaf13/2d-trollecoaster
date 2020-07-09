@@ -4,9 +4,30 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Stats")]
+    [SerializeField] float moveSpeed = 2f;
+    [SerializeField] int health = 1;
+    [SerializeField] float deathDelay = 0.7f;
+
+    [Header("Movement Options")]
+    [SerializeField] bool isFacingRight = false;
+    [SerializeField] bool isLimitedToEdges = true;
+
+    [Header("Player Bounce")]
     [SerializeField] float bumpVelocity = 10f;
     [SerializeField] bool isBounceable = true;
 
+    private float moveDirection;
+    private Rigidbody2D myRigidBody;
+    private bool isAlive = true;
+
+    void Start()
+    {
+        myRigidBody = GetComponent<Rigidbody2D>();
+        SetMoveDirection();
+    }
+
+    //Handle hit methods
     private void OnCollisionEnter2D(Collision2D other)
     {
         Player player = other.gameObject.GetComponent<Player>();
@@ -23,13 +44,56 @@ public class Enemy : MonoBehaviour
                 if (playerRb)
                 {
                     playerRb.velocity = new Vector2(0f, bumpVelocity);
-                } 
-                //Hit Enemy();         
+                }
+                Hit();         
             }
             else
             {
                 player.Hit();
             }
         }
+    }
+    public void Hit()
+    {
+        health--;
+        if (health <= 0 && isAlive)
+        {
+            Die();
+        }
+    }
+    private void Die()
+    {
+        isAlive = false;
+        DisableEnemyColliders();
+        GetComponent<Animator>().SetTrigger(Constants.Animations.Died);
+        Destroy(gameObject, deathDelay);
+    }
+
+    private void DisableEnemyColliders()
+    {
+        Destroy(myRigidBody);
+        var childColliders = GetComponentsInChildren<Collider2D>();
+        if (childColliders.Length < 1) return;
+        foreach (Collider2D collider in childColliders)
+        {
+            Destroy(collider);
+        }
+    }
+
+    //Movement methods
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!isLimitedToEdges || !isAlive) return;
+
+        transform.localScale = new Vector2(Mathf.Sign(myRigidBody.velocity.x), 1f);
+        moveDirection *= (-1);
+        myRigidBody.velocity = new Vector2(moveSpeed * moveDirection, myRigidBody.velocity.y);
+    }
+    private void SetMoveDirection()
+    {
+        if (!myRigidBody) Debug.LogError("Rigidbody missing: " + gameObject.name);
+        moveDirection = isFacingRight ? 1f : -1f;
+        myRigidBody.velocity = new Vector2(moveSpeed * moveDirection, 0f);
+        transform.localScale = new Vector2(-Mathf.Sign(myRigidBody.velocity.x), 1f);
     }
 }

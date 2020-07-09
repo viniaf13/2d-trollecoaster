@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [Header("Player Parameters")]
     [SerializeField] float moveSpeed = 7f;
     [SerializeField] float jumpForce = 15f;
+    [SerializeField] float deathDelay = 1f;
 
     [Header("Body Elements")]
     [SerializeField] GameObject body = default;
@@ -56,7 +57,6 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             //myRigidBody.velocity = new Vector2(0f, jumpForce);
-            //myRigidBody.AddForce(transform.forward * jumpForce);
             myRigidBody.AddForce(new Vector2 (0f, jumpForce), ForceMode2D.Impulse);
         }
     }
@@ -96,6 +96,6 @@ public class Player : MonoBehaviour
         isAlive = false;
         myAnimator.SetTrigger(Constants.Animations.Died);
         myRigidBody.bodyType = RigidbodyType2D.Static;
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, deathDelay);
     }
 }
