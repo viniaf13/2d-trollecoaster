@@ -88,7 +88,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   health: 1
-  deathDelay: 0.7
+  deathDelay: 0.5
   isFacingRight: 0
   isLimitedToEdges: 1
   bumpVelocity: 10

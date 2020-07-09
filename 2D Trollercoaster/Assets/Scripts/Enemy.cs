@@ -68,7 +68,6 @@ public class Enemy : MonoBehaviour
         GetComponent<Animator>().SetTrigger(Constants.Animations.Died);
         Destroy(gameObject, deathDelay);
     }
-
     private void DisableEnemyColliders()
     {
         Destroy(myRigidBody);
