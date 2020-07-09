@@ -15,6 +15,7 @@ public static class Constants
     public static class Layers
     {
         public const string Ground = "Ground";
+        public const string Enemies = "Enemies";
     }
 
     public static class Others

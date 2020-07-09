@@ -6,8 +6,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Player Parameters")]
-    [SerializeField] float moveSpeed = 400f;
-    [SerializeField] float jumpSpeed = 5f;
+    [SerializeField] float moveSpeed = 7f;
+    [SerializeField] float jumpForce = 15f;
 
     [Header("Body Elements")]
     [SerializeField] GameObject body = default;
@@ -52,24 +52,26 @@ public class Player : MonoBehaviour
     }
     private void Jump()
     {
-        if (!IsOnGround()) return;
+        if (!IsLanded()) return;
         if (Input.GetButtonDown("Jump"))
         {
-            myRigidBody.velocity = new Vector2(0f, jumpSpeed);
+            //myRigidBody.velocity = new Vector2(0f, jumpForce);
+            //myRigidBody.AddForce(transform.forward * jumpForce);
+            myRigidBody.AddForce(new Vector2 (0f, jumpForce), ForceMode2D.Impulse);
         }
     }
     private void FlipSprite()
     {
         transform.localScale = new Vector2(Mathf.Sign(myRigidBody.velocity.x),1f);
     }
-    private bool IsOnGround()
+    private bool IsLanded()
     {
         return myfeetCollider.IsTouchingLayers(LayerMask.GetMask(
-            Constants.Layers.Ground));
+            Constants.Layers.Ground, Constants.Layers.Enemies));
     }
     private void HandleAnimation()
     {
-        bool playerHasYMovement = !IsOnGround();
+        bool playerHasYMovement = !IsLanded();
         myAnimator.SetBool(Constants.Animations.Landed, !playerHasYMovement);
         if (playerHasYMovement)
         {
