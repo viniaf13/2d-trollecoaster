@@ -21,11 +21,6 @@ public class EnemyMovement : MonoBehaviour
         SetMoveDirection();
     }
 
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (!isLimitedToEdges) return;
