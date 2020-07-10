@@ -6,10 +6,14 @@ public static class Constants
 {
     public static class Animations
     {
+        //bools
         public const string Run = "isRunning";
         public const string Jump = "isJumping";
         public const string Landed = "isLanded";
+
+        //triggers
         public const string Died = "died";
+        public const string Touched = "touched";
     }
 
     public static class Layers
@@ -23,6 +27,4 @@ public static class Constants
     {
         public const float PlayerMovementThreshold = 0.01f;
     }
-
-
 }

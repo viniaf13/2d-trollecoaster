@@ -5,23 +5,23 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [Header("Stats")]
-    [SerializeField] float moveSpeed = 2f;
-    [SerializeField] int health = 1;
-    [SerializeField] float deathDelay = 0.7f;
+    [SerializeField] private float moveSpeed = 2f;
+    [SerializeField] private int health = 1;
+    [SerializeField] private float deathDelay = 0.7f;
 
     [Header("Movement Options")]
-    [SerializeField] bool isFacingRight = false;
-    [SerializeField] bool isLimitedToEdges = true;
+    [SerializeField] private bool isFacingRight = false;
+    [SerializeField] private bool isLimitedToEdges = true;
 
     [Header("Player Bounce")]
-    [SerializeField] float bumpVelocity = 10f;
-    [SerializeField] bool isBounceable = true;
+    [SerializeField] private float bumpVelocity = 10f;
+    [SerializeField] private bool isBounceable = true;
 
     private float moveDirection;
     private Rigidbody2D myRigidBody;
     private bool isAlive = true;
 
-    void Start()
+    private void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         SetMoveDirection();
@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
                 {
                     playerRb.velocity = new Vector2(0f, bumpVelocity);
                 }
-                Hit();         
+                Hit();
             }
             else
             {
@@ -53,6 +53,7 @@ public class Enemy : MonoBehaviour
             }
         }
     }
+
     public void Hit()
     {
         health--;
@@ -61,6 +62,7 @@ public class Enemy : MonoBehaviour
             Die();
         }
     }
+
     private void Die()
     {
         isAlive = false;
@@ -68,6 +70,7 @@ public class Enemy : MonoBehaviour
         GetComponent<Animator>().SetTrigger(Constants.Animations.Died);
         Destroy(gameObject, deathDelay);
     }
+
     private void DisableEnemyColliders()
     {
         Destroy(myRigidBody);
@@ -88,6 +91,7 @@ public class Enemy : MonoBehaviour
         moveDirection *= (-1);
         myRigidBody.velocity = new Vector2(moveSpeed * moveDirection, myRigidBody.velocity.y);
     }
+
     private void SetMoveDirection()
     {
         if (!myRigidBody) Debug.LogError("Rigidbody missing: " + gameObject.name);

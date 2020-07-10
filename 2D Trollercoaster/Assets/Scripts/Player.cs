@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
 
     //State
     private bool isAlive = true;
+    private bool playerControl = true;
 
     private Rigidbody2D myRigidBody;
     private Animator myAnimator;
@@ -31,13 +32,13 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
-        if (!isAlive) { return; }
+        if (!playerControl) { return; }
         Jump();  
     }
     private void FixedUpdate()
     {
-        if (!isAlive) { return; }
-        HandleAnimation(); 
+        HandleAnimation();
+        if (!playerControl) { return; }  
         Move();
     }
     private void Move()
@@ -71,6 +72,7 @@ public class Player : MonoBehaviour
     }
     private void HandleAnimation()
     {
+        if (!isAlive) { return; }
         bool playerHasYMovement = !IsLanded();
         myAnimator.SetBool(Constants.Animations.Landed, !playerHasYMovement);
         if (playerHasYMovement)
@@ -84,6 +86,14 @@ public class Player : MonoBehaviour
             myAnimator.SetBool(Constants.Animations.Run, playerHasXMovement);
         }
     }
+    private void Die()
+    {
+        isAlive = false;
+        GrantPlayerControl(false);
+        myAnimator.SetTrigger(Constants.Animations.Died);
+        myRigidBody.bodyType = RigidbodyType2D.Static;
+        Destroy(gameObject, deathDelay);
+    }
     public void Hit()
     {
         if (isAlive)
@@ -91,11 +101,12 @@ public class Player : MonoBehaviour
             Die();
         }
     }
-    private void Die()
+    public void GrantPlayerControl(bool control)
     {
-        isAlive = false;
-        myAnimator.SetTrigger(Constants.Animations.Died);
-        myRigidBody.bodyType = RigidbodyType2D.Static;
-        Destroy(gameObject, deathDelay);
+        playerControl = control;
+    }
+    public void SetPlayerVelocity(Vector2 velocity)
+    {
+        myRigidBody.velocity = velocity;
     }
 }
