@@ -90,6 +90,7 @@ public class Player : MonoBehaviour
     }
     private void Die()
     {
+        if (!isAlive) {return; }
         isAlive = false;
         GrantPlayerControl(false);
         myAnimator.SetTrigger(Constants.Animations.Died);
