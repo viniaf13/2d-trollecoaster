@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     private Animator myAnimator;
     private Collider2D mybodyCollider;
     private Collider2D myfeetCollider;
+    private GameSession gameSession;
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class Player : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         mybodyCollider = body.GetComponent<Collider2D>();
         myfeetCollider = feet.GetComponent<Collider2D>();
+        gameSession = FindObjectOfType<GameSession>();
     }
     void Update()
     {
@@ -92,6 +94,7 @@ public class Player : MonoBehaviour
         GrantPlayerControl(false);
         myAnimator.SetTrigger(Constants.Animations.Died);
         myRigidBody.bodyType = RigidbodyType2D.Static;
+        gameSession.TakeLife();
         Destroy(gameObject, deathDelay);
     }
     public void Hit()

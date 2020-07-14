@@ -14,6 +14,7 @@ public static class Constants
         //triggers
         public const string Died = "died";
         public const string Touched = "touched";
+        public const string Collected = "collected";
     }
 
     public static class Layers
