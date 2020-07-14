@@ -24,6 +24,11 @@ public static class Constants
         public const string Background = "Background";
     }
 
+    public static class Tags
+    {
+        public const string Ground = "AudioListener";
+    }
+
     public static class Others
     {
         public const float PlayerMovementThreshold = 0.01f;
