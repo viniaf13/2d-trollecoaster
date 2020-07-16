@@ -26,7 +26,8 @@ public static class Constants
 
     public static class Tags
     {
-        public const string Ground = "AudioListener";
+        public const string AudioListener = "AudioListener";
+        public const string Canvas = "Canvas";
     }
 
     public static class Others

@@ -27,7 +27,7 @@ public class Fruit : MonoBehaviour
     private void PlaySFX()
     {
         if (hasPlayed) return;
-        GameObject audioListener = GameObject.FindWithTag("AudioListener");
+        GameObject audioListener = GameObject.FindWithTag(Constants.Tags.AudioListener);
         AudioSource.PlayClipAtPoint(fruitPickupSFX, audioListener.transform.position, soundVolume);
         hasPlayed = true;
     }

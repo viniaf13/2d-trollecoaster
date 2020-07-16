@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - AudioListener
+  - Canvas
   layers:
   - Default
   - TransparentFX

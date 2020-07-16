@@ -8,12 +8,6 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] float loadDelay = 3f;
 
     private int currentSceneIndex;
-    private enum Levels
-    {
-        MainMenu = 0,
-        LevelSelectionScreen = 1,
-        Level1 = 2,
-    }
 
     private void Start()
     {
