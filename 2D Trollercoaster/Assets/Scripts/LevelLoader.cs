@@ -20,7 +20,7 @@ public class LevelLoader : MonoBehaviour
         currentSceneIndex = sceneIndex;
     }
 
-    private void LoadLevelInstant(int sceneIndex)
+    public void LoadLevelInstant(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);
         currentSceneIndex = sceneIndex;
