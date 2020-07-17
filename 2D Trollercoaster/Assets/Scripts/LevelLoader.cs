@@ -26,6 +26,12 @@ public class LevelLoader : MonoBehaviour
         currentSceneIndex = sceneIndex;
     }
 
+    public void LoadNextLevel()
+    {
+        SceneManager.LoadScene(currentSceneIndex + 1);
+        currentSceneIndex++;
+    }
+
     public void RestartLevel()
     {
         StartCoroutine(LoadLevelWithDelay(currentSceneIndex));
