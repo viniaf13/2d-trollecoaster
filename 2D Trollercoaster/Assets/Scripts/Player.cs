@@ -14,13 +14,17 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject body = default;
     [SerializeField] GameObject feet = default;
 
+    [Header("SFX")]
+    [SerializeField] float soundVolume = 0.1f;
+    [SerializeField] AudioClip playerDeathSFX = default;
+
     //State
     private bool isAlive = true;
     private bool playerControl = true;
 
     private Rigidbody2D myRigidBody;
     private Animator myAnimator;
-    private Collider2D mybodyCollider;
+    //private Collider2D mybodyCollider;
     private Collider2D myfeetCollider;
     private GameSession gameSession;
 
@@ -28,21 +32,24 @@ public class Player : MonoBehaviour
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
-        mybodyCollider = body.GetComponent<Collider2D>();
+        //mybodyCollider = body.GetComponent<Collider2D>();
         myfeetCollider = feet.GetComponent<Collider2D>();
         gameSession = FindObjectOfType<GameSession>();
     }
+
     void Update()
     {
         if (!playerControl) { return; }
         Jump();  
     }
+
     private void FixedUpdate()
     {
         HandleAnimation();
         if (!playerControl) { return; }  
         Move();
     }
+
     private void Move()
     {
         float inputX = Input.GetAxis("Horizontal") * moveSpeed;
@@ -54,6 +61,7 @@ public class Player : MonoBehaviour
             FlipSprite();
         }
     }
+
     private void Jump()
     {
         if (!IsLanded()) return;
@@ -63,15 +71,18 @@ public class Player : MonoBehaviour
             myRigidBody.AddForce(new Vector2 (0f, jumpForce), ForceMode2D.Impulse);
         }
     }
+
     private void FlipSprite()
     {
         transform.localScale = new Vector2(Mathf.Sign(myRigidBody.velocity.x),1f);
     }
+
     private bool IsLanded()
     {
         return myfeetCollider.IsTouchingLayers(LayerMask.GetMask(
             Constants.Layers.Ground, Constants.Layers.Enemies));
     }
+
     private void HandleAnimation()
     {
         if (!isAlive) { return; }
@@ -88,6 +99,7 @@ public class Player : MonoBehaviour
             myAnimator.SetBool(Constants.Animations.Run, playerHasXMovement);
         }
     }
+
     private void Die()
     {
         if (!isAlive) {return; }
@@ -96,8 +108,12 @@ public class Player : MonoBehaviour
         myAnimator.SetTrigger(Constants.Animations.Died);
         myRigidBody.bodyType = RigidbodyType2D.Static;
         gameSession.TakeLife();
+        GameObject audioListener = GameObject.FindWithTag(Constants.Tags.AudioListener);
+        AudioSource.PlayClipAtPoint(playerDeathSFX, audioListener.transform.position, soundVolume);
         Destroy(gameObject, deathDelay);
     }
+
+
     public void Hit()
     {
         if (isAlive)
@@ -105,10 +121,12 @@ public class Player : MonoBehaviour
             Die();
         }
     }
+
     public void GrantPlayerControl(bool control)
     {
         playerControl = control;
     }
+
     public void SetPlayerVelocity(Vector2 velocity)
     {
         myRigidBody.velocity = velocity;

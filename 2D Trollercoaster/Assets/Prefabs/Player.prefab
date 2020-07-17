@@ -126,7 +126,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1405396097
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 4883129791460916795, guid: d348dff3819df794186a80cb95777629,
     type: 3}
@@ -245,5 +245,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 7
   jumpForce: 15
+  deathDelay: 1
   body: {fileID: 2492262894857851329}
   feet: {fileID: 2492262893293511793}
+  soundVolume: 0.1
+  playerDeathSFX: {fileID: 8300000, guid: fc3fe52ce5c927d448ef458a012fb45e, type: 3}
