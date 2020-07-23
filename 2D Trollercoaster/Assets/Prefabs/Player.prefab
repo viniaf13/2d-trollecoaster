@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
-  jumpForce: 15
+  jumpForce: 18
   deathDelay: 1
   body: {fileID: 2492262894857851329}
   feet: {fileID: 2492262893293511793}
