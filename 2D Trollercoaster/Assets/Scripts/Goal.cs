@@ -9,6 +9,7 @@ public class Goal : MonoBehaviour
         Player player = other.GetComponentInParent<Player>();
         if (player)
         {
+            FindObjectOfType<Jukebox>().PlaySuccess();
             GetComponent<Animator>().SetTrigger(Constants.Animations.Touched);
             player.GrantPlayerControl(false);
             player.SetPlayerVelocity(new Vector2(0f, 0f));

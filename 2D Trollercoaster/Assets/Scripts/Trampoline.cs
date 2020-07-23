@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Trampoline : MonoBehaviour
 {
-    [SerializeField] private float bumpVelocity = 30f;
+    [SerializeField] float bumpVelocity = 30f;
+    [SerializeField] AudioClip bounceSFX = default;
+    [SerializeField] float soundVolume = 0.1f;
 
     private Animator animator;
 
@@ -23,12 +25,20 @@ public class Trampoline : MonoBehaviour
                 Rigidbody2D playerRb = other.gameObject.GetComponent<Rigidbody2D>();
                 if (playerRb)
                 {
-                    animator.SetTrigger(Constants.Animations.Touched);
-                    playerRb.velocity = new Vector2(0f, bumpVelocity);
+                    Bounce(playerRb);
                 }
             }
         }
     }
+
+    private void Bounce(Rigidbody2D playerRb)
+    {
+        animator.SetTrigger(Constants.Animations.Touched);
+        GameObject audioListener = GameObject.FindWithTag(Constants.Tags.AudioListener);
+        AudioSource.PlayClipAtPoint(bounceSFX, audioListener.transform.position, soundVolume);
+        playerRb.velocity = new Vector2(0f, bumpVelocity);
+    }
+
     private bool CheckForCollisionAtTop(Collision2D other)
     {
         bool hitAtTop = false;
@@ -38,4 +48,5 @@ public class Trampoline : MonoBehaviour
         }
         return hitAtTop;
     }
+
 }

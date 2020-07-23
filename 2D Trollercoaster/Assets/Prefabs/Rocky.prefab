@@ -93,6 +93,8 @@ MonoBehaviour:
   isLimitedToEdges: 1
   bumpVelocity: 10
   isBounceable: 1
+  soundVolume: 0.3
+  deathSFX: {fileID: 8300000, guid: 898ee7bc70615b14fb7760368e867218, type: 3}
 --- !u!1 &1619139968205122597
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +165,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2142066179
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 8800081985865436245, guid: 419f1f3d5fcf8204389dd119348a56e1,
     type: 3}

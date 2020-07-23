@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     [Header("SFX")]
     [SerializeField] float soundVolume = 0.1f;
     [SerializeField] AudioClip playerDeathSFX = default;
+    [SerializeField] AudioClip playerJumpSFX = default;
 
     //State
     private bool isAlive = true;
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour
     //private Collider2D mybodyCollider;
     private Collider2D myfeetCollider;
     private GameSession gameSession;
+    private GameObject audioListener;
 
     void Start()
     {
@@ -35,6 +37,7 @@ public class Player : MonoBehaviour
         //mybodyCollider = body.GetComponent<Collider2D>();
         myfeetCollider = feet.GetComponent<Collider2D>();
         gameSession = FindObjectOfType<GameSession>();
+        audioListener = GameObject.FindWithTag(Constants.Tags.AudioListener);
     }
 
     void Update()
@@ -68,6 +71,7 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             //myRigidBody.velocity = new Vector2(0f, jumpForce);
+            AudioSource.PlayClipAtPoint(playerJumpSFX, audioListener.transform.position, soundVolume);
             myRigidBody.AddForce(new Vector2 (0f, jumpForce), ForceMode2D.Impulse);
         }
     }
@@ -105,14 +109,15 @@ public class Player : MonoBehaviour
         if (!isAlive) {return; }
         isAlive = false;
         GrantPlayerControl(false);
-        myAnimator.SetTrigger(Constants.Animations.Died);
         myRigidBody.bodyType = RigidbodyType2D.Static;
-        gameSession.TakeLife();
-        GameObject audioListener = GameObject.FindWithTag(Constants.Tags.AudioListener);
+
+        FindObjectOfType<Jukebox>().StopSounds();
         AudioSource.PlayClipAtPoint(playerDeathSFX, audioListener.transform.position, soundVolume);
+        myAnimator.SetTrigger(Constants.Animations.Died);
+
+        gameSession.TakeLife();
         Destroy(gameObject, deathDelay);
     }
-
 
     public void Hit()
     {

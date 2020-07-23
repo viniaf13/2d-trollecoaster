@@ -17,13 +17,19 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float bumpVelocity = 10f;
     [SerializeField] private bool isBounceable = true;
 
+    [Header("SFX")]
+    [SerializeField] float soundVolume = 0.1f;
+    [SerializeField] AudioClip deathSFX = default;
+
     private float moveDirection;
     private Rigidbody2D myRigidBody;
     private bool isAlive = true;
+    private GameObject audioListener;
 
     private void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
+        audioListener = GameObject.FindWithTag(Constants.Tags.AudioListener);
         SetMoveDirection();
     }
 
@@ -67,6 +73,7 @@ public class Enemy : MonoBehaviour
     {
         isAlive = false;
         DisableEnemyColliders();
+        AudioSource.PlayClipAtPoint(deathSFX, audioListener.transform.position, soundVolume);
         GetComponent<Animator>().SetTrigger(Constants.Animations.Died);
         Destroy(gameObject, deathDelay);
     }

@@ -174,6 +174,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bumpVelocity: 25
+  bounceSFX: {fileID: 8300000, guid: fd50c6417ce86a64b96799bef61666f0, type: 3}
+  soundVolume: 0.1
 --- !u!50 &3128534113431272408
 Rigidbody2D:
   serializedVersion: 4
