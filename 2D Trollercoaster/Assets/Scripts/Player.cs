@@ -23,19 +23,19 @@ public class Player : MonoBehaviour
     private bool isAlive = true;
     private bool playerControl = true;
 
-    private Rigidbody2D myRigidBody;
-    private Animator myAnimator;
+    private Rigidbody2D rigidBody;
+    private Animator animator;
     //private Collider2D mybodyCollider;
-    private Collider2D myfeetCollider;
+    private Collider2D feetCollider;
     private GameSession gameSession;
     private GameObject audioListener;
 
     void Start()
     {
-        myRigidBody = GetComponent<Rigidbody2D>();
-        myAnimator = GetComponent<Animator>();
+        rigidBody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         //mybodyCollider = body.GetComponent<Collider2D>();
-        myfeetCollider = feet.GetComponent<Collider2D>();
+        feetCollider = feet.GetComponent<Collider2D>();
         gameSession = FindObjectOfType<GameSession>();
         audioListener = GameObject.FindWithTag(Constants.Tags.AudioListener);
     }
@@ -56,9 +56,21 @@ public class Player : MonoBehaviour
     private void Move()
     {
         float inputX = Input.GetAxis("Horizontal") * moveSpeed;
-        myRigidBody.velocity = new Vector2(inputX, myRigidBody.velocity.y);
 
-        bool playerHasXMovement = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
+        //Desaccelarates when hit by something like a spring and then moves
+        if (Mathf.Abs(rigidBody.velocity.x) > moveSpeed + Constants.Others.PlayerMovementThreshold) 
+        { 
+            if (Mathf.Sign(rigidBody.velocity.x) != Mathf.Sign(inputX))
+            {
+                rigidBody.velocity += new Vector2(inputX, 0f);
+            }
+        }
+        else
+        {
+            rigidBody.velocity = new Vector2(inputX, rigidBody.velocity.y);
+        }
+
+        bool playerHasXMovement = Mathf.Abs(rigidBody.velocity.x) > Mathf.Epsilon;
         if (playerHasXMovement)
         {
             FlipSprite();
@@ -67,40 +79,39 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
-        if (!IsLanded()) return;
+        if (!IsGrounded()) return;
         if (Input.GetButtonDown("Jump"))
         {
-            //myRigidBody.velocity = new Vector2(0f, jumpForce);
             AudioSource.PlayClipAtPoint(playerJumpSFX, audioListener.transform.position, soundVolume);
-            myRigidBody.AddForce(new Vector2 (0f, jumpForce), ForceMode2D.Impulse);
+            rigidBody.AddForce(new Vector2 (0f, jumpForce), ForceMode2D.Impulse);
         }
     }
 
     private void FlipSprite()
     {
-        transform.localScale = new Vector2(Mathf.Sign(myRigidBody.velocity.x),1f);
+        transform.localScale = new Vector2(Mathf.Sign(rigidBody.velocity.x),1f);
     }
 
-    private bool IsLanded()
+    private bool IsGrounded()
     {
-        return myfeetCollider.IsTouchingLayers(LayerMask.GetMask(
+        return feetCollider.IsTouchingLayers(LayerMask.GetMask(
             Constants.Layers.Ground, Constants.Layers.Enemies));
     }
 
     private void HandleAnimation()
     {
         if (!isAlive) { return; }
-        bool playerHasYMovement = !IsLanded();
-        myAnimator.SetBool(Constants.Animations.Landed, !playerHasYMovement);
+        bool playerHasYMovement = !IsGrounded();
+        animator.SetBool(Constants.Animations.Landed, !playerHasYMovement);
         if (playerHasYMovement)
         {
-            bool isHeJumping = (Mathf.Sign(myRigidBody.velocity.y) > 0);
-            myAnimator.SetBool(Constants.Animations.Jump, isHeJumping);
+            bool isHeJumping = (Mathf.Sign(rigidBody.velocity.y) > 0);
+            animator.SetBool(Constants.Animations.Jump, isHeJumping);
         }
         else
         {
-            bool playerHasXMovement = Mathf.Abs(myRigidBody.velocity.x) > Constants.Others.PlayerMovementThreshold;
-            myAnimator.SetBool(Constants.Animations.Run, playerHasXMovement);
+            bool playerHasXMovement = Mathf.Abs(rigidBody.velocity.x) > Constants.Others.PlayerMovementThreshold;
+            animator.SetBool(Constants.Animations.Run, playerHasXMovement);
         }
     }
 
@@ -109,11 +120,11 @@ public class Player : MonoBehaviour
         if (!isAlive) {return; }
         isAlive = false;
         GrantPlayerControl(false);
-        myRigidBody.bodyType = RigidbodyType2D.Static;
+        rigidBody.bodyType = RigidbodyType2D.Static;
 
         FindObjectOfType<Jukebox>().StopSounds();
         AudioSource.PlayClipAtPoint(playerDeathSFX, audioListener.transform.position, soundVolume);
-        myAnimator.SetTrigger(Constants.Animations.Died);
+        animator.SetTrigger(Constants.Animations.Died);
 
         gameSession.TakeLife();
         Destroy(gameObject, deathDelay);
@@ -134,6 +145,6 @@ public class Player : MonoBehaviour
 
     public void SetPlayerVelocity(Vector2 velocity)
     {
-        myRigidBody.velocity = velocity;
+        rigidBody.velocity = velocity;
     }
 }

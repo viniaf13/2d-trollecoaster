@@ -250,3 +250,4 @@ MonoBehaviour:
   feet: {fileID: 2492262893293511793}
   soundVolume: 0.1
   playerDeathSFX: {fileID: 8300000, guid: fc3fe52ce5c927d448ef458a012fb45e, type: 3}
+  playerJumpSFX: {fileID: 8300000, guid: 6fc0d6749bdd23545b1cce3d973de2d6, type: 3}

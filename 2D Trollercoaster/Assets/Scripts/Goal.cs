@@ -12,7 +12,7 @@ public class Goal : MonoBehaviour
             FindObjectOfType<Jukebox>().PlaySuccess();
             GetComponent<Animator>().SetTrigger(Constants.Animations.Touched);
             player.GrantPlayerControl(false);
-            player.SetPlayerVelocity(new Vector2(0f, 0f));
+            player.SetPlayerVelocity(Vector2.zero);
             FindObjectOfType<LevelLoader>().RestartLevel();
         }
     }

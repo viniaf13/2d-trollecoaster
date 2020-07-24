@@ -127,6 +127,75 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 2492262893688974116}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &328301191
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272411, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_Name
+      value: Trampoline (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2fe17112298167e4399765047920dffc, type: 3}
 --- !u!4 &572301983 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7147683767133242250, guid: c1ca314c35d09f04fb1b9ebaa7564819,
@@ -5156,6 +5225,75 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1920920944}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1340467324
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272411, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_Name
+      value: Trampoline (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2fe17112298167e4399765047920dffc, type: 3}
 --- !u!1001 &1341729865
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5363,6 +5501,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1ca314c35d09f04fb1b9ebaa7564819, type: 3}
+--- !u!1001 &1667616960
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272407, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 3128534113431272411, guid: 2fe17112298167e4399765047920dffc,
+        type: 3}
+      propertyPath: m_Name
+      value: Trampoline (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2fe17112298167e4399765047920dffc, type: 3}
 --- !u!1001 &1766330490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13867,11 +14074,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2492262894901087118, guid: 2be57a78c0a8d4c4db6ad33a0132b473,
-        type: 3}
-      propertyPath: playerJumpSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: 6fc0d6749bdd23545b1cce3d973de2d6, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2be57a78c0a8d4c4db6ad33a0132b473, type: 3}
 --- !u!1001 &3128534112266217326

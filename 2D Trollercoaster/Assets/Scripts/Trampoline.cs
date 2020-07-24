@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Trampoline : MonoBehaviour
 {
@@ -9,10 +7,12 @@ public class Trampoline : MonoBehaviour
     [SerializeField] float soundVolume = 0.1f;
 
     private Animator animator;
+    private float objectRotation;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        objectRotation = transform.eulerAngles.z;
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -25,28 +25,61 @@ public class Trampoline : MonoBehaviour
                 Rigidbody2D playerRb = other.gameObject.GetComponent<Rigidbody2D>();
                 if (playerRb)
                 {
-                    Bounce(playerRb);
+                    Vector2 pushDirection = DefinePushDirection();
+                    Bounce(playerRb, pushDirection);
                 }
             }
         }
     }
 
-    private void Bounce(Rigidbody2D playerRb)
+    private void Bounce(Rigidbody2D playerRb, Vector2 pushDirection)
     {
         animator.SetTrigger(Constants.Animations.Touched);
         GameObject audioListener = GameObject.FindWithTag(Constants.Tags.AudioListener);
         AudioSource.PlayClipAtPoint(bounceSFX, audioListener.transform.position, soundVolume);
-        playerRb.velocity = new Vector2(0f, bumpVelocity);
+        playerRb.velocity = Vector2.zero;
+        playerRb.AddForce(pushDirection * bumpVelocity, ForceMode2D.Impulse);
+    }
+
+    private Vector2 DefinePushDirection()
+    {
+        Vector2 pushDirection = Vector2.zero;
+        switch (objectRotation)
+        {
+            case 0f:
+                pushDirection = Vector2.up;
+                break;
+            case 90f:
+                pushDirection = Vector2.left;
+                break;
+            case 180f:
+                pushDirection = Vector2.down;
+                break;
+            case 270f:
+                pushDirection = Vector2.right;
+                break;
+            default:
+                break;
+        }
+        return pushDirection;
     }
 
     private bool CheckForCollisionAtTop(Collision2D other)
     {
+        float objectRotation = transform.eulerAngles.z;
         bool hitAtTop = false;
         foreach (ContactPoint2D point in other.contacts)
         {
-            hitAtTop = (Mathf.Abs(point.normal.y) >= 0.9f);
+            //Debug.DrawRay(point.point, point.normal, Color.red,2f);
+            if (objectRotation == 0f || objectRotation == 180f)
+            {
+                hitAtTop = (Mathf.Abs(point.normal.y) >= 0.9f);
+            }
+            else if (objectRotation == 90f || objectRotation == 270f)
+            {
+                hitAtTop = (Mathf.Abs(point.normal.y) <= 0.9f);
+            }
         }
         return hitAtTop;
     }
-
 }
