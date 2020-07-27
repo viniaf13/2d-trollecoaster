@@ -15,6 +15,7 @@ public static class Constants
         public const string Died = "died";
         public const string Touched = "touched";
         public const string Collected = "collected";
+        public const string Hurry = "hurry";
     }
 
     public static class Layers

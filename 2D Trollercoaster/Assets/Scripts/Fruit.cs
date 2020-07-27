@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Fruit : MonoBehaviour
 {
@@ -17,12 +18,21 @@ public class Fruit : MonoBehaviour
         Player player = other.GetComponentInParent<Player>();
         if (player && !hasPickedUp)
         {
-            hasPickedUp = true;
-            FindObjectOfType<ScoreDisplay>().AddToScore(scoreValue);
-            GetComponent<Animator>().SetTrigger(Constants.Animations.Collected);
+            PickUpFruit();
             PlaySFX();
             Destroy(gameObject, destroyDelay);
         }
+    }
+
+    private void PickUpFruit()
+    {
+        hasPickedUp = true;
+        ScoreDisplay scoreDisplay = FindObjectOfType<ScoreDisplay>();
+        if (scoreDisplay)
+        {
+            scoreDisplay.AddToScore(scoreValue);
+        }
+        GetComponent<Animator>().SetTrigger(Constants.Animations.Collected);
     }
 
     private void PlaySFX()
