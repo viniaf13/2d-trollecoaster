@@ -13,6 +13,7 @@ public class GameSession : MonoBehaviour
         int numGameSessions = FindObjectsOfType<GameSession>().Length;
         if (numGameSessions > 1)
         {
+            gameObject.SetActive(false);
             Destroy(gameObject);
         }
         else
@@ -26,11 +27,6 @@ public class GameSession : MonoBehaviour
         levelLoader = GetComponent<LevelLoader>();
     }
 
-    public void ProcessDeath()
-    {
-        //TODO: GAME OVER LOGIC (WILL IT HAVE?)
-    }
-
     public void TakeLife()
     {
         playerLives--;
@@ -41,6 +37,11 @@ public class GameSession : MonoBehaviour
     {
         //Load Main Menu
         Destroy(gameObject);
+    }
+
+    public int GetPlayerLives()
+    {
+        return playerLives;
     }
     
 }

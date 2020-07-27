@@ -4,16 +4,7 @@ using UnityEngine;
 
 public class CanvasController : MonoBehaviour
 {
-    [SerializeField] GameObject mainMenu = default;
-    [SerializeField] GameObject levelSelection = default;
-    [SerializeField] GameObject options = default;
-
-    private GameObject[] sceneCanvases;
-
-    private void Start()
-    {
-        sceneCanvases = new GameObject[3] { mainMenu, levelSelection, options};
-    }
+    [SerializeField] List<GameObject> sceneCanvases = default;
 
     public void SwitchCanvas(GameObject targetCanvas)
     {

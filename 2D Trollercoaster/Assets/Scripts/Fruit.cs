@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class Fruit : MonoBehaviour
 {
-    [SerializeField] int scoreValue = 100;
+    [SerializeField] int scoreValue = 10;
     [SerializeField] float destroyDelay = 1f;
 
     [SerializeField] AudioClip fruitPickupSFX = default;
     [SerializeField] float soundVolume = 0.1f;
 
-    private bool hasPlayed = false;
+    private bool hasPickedUp = false;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         Player player = other.GetComponentInParent<Player>();
-        if (player)
+        if (player && !hasPickedUp)
         {
-            //TODO: send score to game session
+            hasPickedUp = true;
+            FindObjectOfType<ScoreDisplay>().AddToScore(scoreValue);
             GetComponent<Animator>().SetTrigger(Constants.Animations.Collected);
             PlaySFX();
             Destroy(gameObject, destroyDelay);
@@ -26,9 +27,7 @@ public class Fruit : MonoBehaviour
 
     private void PlaySFX()
     {
-        if (hasPlayed) return;
         GameObject audioListener = GameObject.FindWithTag(Constants.Tags.AudioListener);
         AudioSource.PlayClipAtPoint(fruitPickupSFX, audioListener.transform.position, soundVolume);
-        hasPlayed = true;
     }
 }

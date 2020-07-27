@@ -707,9 +707,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269241df5e7fd78408e195fa4d626889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenu: {fileID: 2290533039654348424}
-  levelSelection: {fileID: 5211093234390036521}
-  options: {fileID: 2290533038368125459}
+  sceneCanvases:
+  - {fileID: 2290533039654348424}
+  - {fileID: 5211093234390036521}
+  - {fileID: 2290533038368125459}
 --- !u!1 &2290533038555610082
 GameObject:
   m_ObjectHideFlags: 0

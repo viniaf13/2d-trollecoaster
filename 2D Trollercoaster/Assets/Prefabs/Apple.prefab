@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c1c0f6cfc6f3b4f8a986db81ac42fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreValue: 100
+  scoreValue: 10
   destroyDelay: 1
   fruitPickupSFX: {fileID: 8300000, guid: 29ee1578434ee874e901d307e44c042a, type: 3}
   soundVolume: 0.1
