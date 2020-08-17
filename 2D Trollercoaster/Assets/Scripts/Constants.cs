@@ -23,6 +23,7 @@ public static class Constants
         public const string Ground = "Ground";
         public const string Enemies = "Enemies";
         public const string Background = "Background";
+        public const string Interactables = "Interactables";
     }
 
     public static class Tags

@@ -95,7 +95,7 @@ public class Player : MonoBehaviour
     private bool IsGrounded()
     {
         return feetCollider.IsTouchingLayers(LayerMask.GetMask(
-            Constants.Layers.Ground, Constants.Layers.Enemies));
+            Constants.Layers.Ground, Constants.Layers.Enemies, Constants.Layers.Interactables));
     }
 
     private void HandleAnimation()
