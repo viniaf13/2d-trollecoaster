@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameSession : MonoBehaviour
 {
     [SerializeField] int playerLives = 3;
-    [SerializeField] Vector2 lastCheckPoint;
+    [SerializeField] Vector3 lastCheckPointPos;
 
     private LevelLoader levelLoader;
     //Singleton
@@ -43,6 +43,27 @@ public class GameSession : MonoBehaviour
     public int GetPlayerLives()
     {
         return playerLives;
+    }
+
+    public void SetLastCP(Vector3 checkpointPos)
+    {
+        lastCheckPointPos = checkpointPos;
+        Checkpoint[] sceneCheckPoints = FindObjectsOfType<Checkpoint>();
+        if (sceneCheckPoints.Length >= 1)
+        {
+            foreach (Checkpoint cp in sceneCheckPoints)
+            {
+                if (cp.transform.position != checkpointPos)
+                {
+                    cp.DisableCP();
+                }
+            }
+        }
+    }
+
+    public Vector3 GetLastCP()
+    {
+        return lastCheckPointPos;
     }
     
 }

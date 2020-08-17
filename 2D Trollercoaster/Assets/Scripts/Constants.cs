@@ -10,6 +10,7 @@ public static class Constants
         public const string Run = "isRunning";
         public const string Jump = "isJumping";
         public const string Landed = "isLanded";
+        public const string Active = "isActive";
 
         //triggers
         public const string Died = "died";

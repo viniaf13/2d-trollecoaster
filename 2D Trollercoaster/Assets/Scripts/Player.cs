@@ -19,6 +19,9 @@ public class Player : MonoBehaviour
     [SerializeField] AudioClip playerDeathSFX = default;
     [SerializeField] AudioClip playerJumpSFX = default;
 
+    [Header("Debug")]
+    [SerializeField] bool restartFromCheckPoint = true;
+
     //State
     private bool isAlive = true;
     private bool playerControl = true;
@@ -38,6 +41,11 @@ public class Player : MonoBehaviour
         feetCollider = feet.GetComponent<Collider2D>();
         gameSession = FindObjectOfType<GameSession>();
         audioListener = GameObject.FindWithTag(Constants.Tags.AudioListener);
+
+        if (restartFromCheckPoint)
+        {
+            transform.position = gameSession.GetLastCP();
+        }  
     }
 
     void Update()
@@ -102,7 +110,7 @@ public class Player : MonoBehaviour
     {
         if (!isAlive) { return; }
         bool playerHasYMovement = !IsGrounded();
-        animator.SetBool(Constants.Animations.Landed, !playerHasYMovement);
+        Debug.Log(playerHasYMovement);
         if (playerHasYMovement)
         {
             bool isHeJumping = (Mathf.Sign(rigidBody.velocity.y) > 0);
@@ -112,7 +120,9 @@ public class Player : MonoBehaviour
         {
             bool playerHasXMovement = Mathf.Abs(rigidBody.velocity.x) > Constants.Others.PlayerMovementThreshold;
             animator.SetBool(Constants.Animations.Run, playerHasXMovement);
+            animator.SetBool(Constants.Animations.Jump, false);
         }
+        animator.SetBool(Constants.Animations.Landed, !playerHasYMovement);
     }
 
     private void Die()
@@ -146,5 +156,10 @@ public class Player : MonoBehaviour
     public void SetPlayerVelocity(Vector2 velocity)
     {
         rigidBody.velocity = velocity;
+    }
+
+    public void SetPlayerMovespeed(float newMovespeed)
+    {
+        moveSpeed = newMovespeed;
     }
 }
