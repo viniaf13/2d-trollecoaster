@@ -25,12 +25,26 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D myRigidBody;
     private bool isAlive = true;
     private GameObject audioListener;
+    private SpriteRenderer bodySpriteRenderer;
+    private bool isInitialized = false;
 
     private void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         audioListener = GameObject.FindWithTag(Constants.Tags.AudioListener);
-        SetMoveDirection();
+        bodySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        
+    }
+
+    private void Update()
+    {
+        if (isInitialized) return;
+
+        if (bodySpriteRenderer.isVisible)
+        {
+            isInitialized = true;
+            SetMoveDirection();
+        }
     }
 
     //Handle hit methods
@@ -101,9 +115,15 @@ public class Enemy : MonoBehaviour
 
     private void SetMoveDirection()
     {
-        if (!myRigidBody) Debug.LogError("Rigidbody missing: " + gameObject.name);
         moveDirection = isFacingRight ? 1f : -1f;
         myRigidBody.velocity = new Vector2(moveSpeed * moveDirection, 0f);
+        transform.localScale = new Vector2(-Mathf.Sign(myRigidBody.velocity.x), 1f);
+    }
+
+    public void ChangeMoveSpeed(float newSpeed)
+    {
+        moveDirection = isFacingRight ? 1f : -1f;
+        myRigidBody.velocity = new Vector2(newSpeed * moveDirection, 0f);
         transform.localScale = new Vector2(-Mathf.Sign(myRigidBody.velocity.x), 1f);
     }
 }

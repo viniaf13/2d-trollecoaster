@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameSession : MonoBehaviour
 {
     [SerializeField] int playerLives = 3;
+    [SerializeField] Vector2 lastCheckPoint;
 
     private LevelLoader levelLoader;
     //Singleton

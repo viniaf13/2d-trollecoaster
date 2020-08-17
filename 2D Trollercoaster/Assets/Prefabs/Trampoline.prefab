@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3128534112491097975}
   - component: {fileID: 3128534112491097973}
   - component: {fileID: 3128534112491097972}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 3128534113431272406}
   - component: {fileID: 3128534113431272409}
   - component: {fileID: 3128534113431272408}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Trampoline
   m_TagString: Untagged
   m_Icon: {fileID: 0}

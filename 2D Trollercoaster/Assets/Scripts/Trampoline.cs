@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Trampoline : MonoBehaviour
 {
@@ -16,9 +17,10 @@ public class Trampoline : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        Player player = other.gameObject.GetComponent<Player>();
-        if (player)
-        {
+        //Player player = other.gameObject.GetComponent<Player>();
+        //bool canPush = IsPushableLayer(other.gameObject);
+        //if (player)
+        //{
             bool hitAtTop = CheckForCollisionAtTop(other);
             if (hitAtTop)
             {
@@ -29,7 +31,7 @@ public class Trampoline : MonoBehaviour
                     Bounce(playerRb, pushDirection);
                 }
             }
-        }
+        //}
     }
 
     private void Bounce(Rigidbody2D playerRb, Vector2 pushDirection)
