@@ -44,7 +44,6 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        Debug.Log("PASSOU");
         GameSession gameSession = FindObjectOfType<GameSession>();
         if (gameSession)
         {

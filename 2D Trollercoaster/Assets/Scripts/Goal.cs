@@ -13,7 +13,14 @@ public class Goal : MonoBehaviour
             GetComponent<Animator>().SetTrigger(Constants.Animations.Touched);
             player.GrantPlayerControl(false);
             player.SetPlayerVelocity(Vector2.zero);
-            FindObjectOfType<CanvasController>().SwitchCanvas(2); //TODO: Fix magic number
+            FindObjectOfType<GameSession>().SaveSessionValues();
+            StartCoroutine(SwitchCanvases());
         }
+    }
+
+    private IEnumerator SwitchCanvases()
+    {
+        yield return new WaitForSeconds(0.5f);
+        FindObjectOfType<CanvasController>().SwitchCanvas(2); //TODO: Fix magic number
     }
 }

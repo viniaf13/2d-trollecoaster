@@ -89836,7 +89836,7 @@ PrefabInstance:
     - target: {fileID: 1578895405849972909, guid: cabe599a4ac665640aa730dd3dd73001,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.776646
+      value: 8.746646
       objectReference: {fileID: 0}
     - target: {fileID: 1578895405849972909, guid: cabe599a4ac665640aa730dd3dd73001,
         type: 3}
@@ -89866,7 +89866,7 @@ PrefabInstance:
     - target: {fileID: 1578895406234933069, guid: cabe599a4ac665640aa730dd3dd73001,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.776646
+      value: 8.746646
       objectReference: {fileID: 0}
     - target: {fileID: 1578895406234933069, guid: cabe599a4ac665640aa730dd3dd73001,
         type: 3}
@@ -89886,17 +89886,17 @@ PrefabInstance:
     - target: {fileID: 1578895407266751358, guid: cabe599a4ac665640aa730dd3dd73001,
         type: 3}
       propertyPath: orthographic size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1578895407266751361, guid: cabe599a4ac665640aa730dd3dd73001,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.48
+      value: 1.45
       objectReference: {fileID: 0}
     - target: {fileID: 1578895407266751361, guid: cabe599a4ac665640aa730dd3dd73001,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5800002
+      value: 0.58000046
       objectReference: {fileID: 0}
     - target: {fileID: 1578895407266751361, guid: cabe599a4ac665640aa730dd3dd73001,
         type: 3}
@@ -90039,7 +90039,7 @@ PrefabInstance:
     - target: {fileID: 2492262894901087107, guid: 2be57a78c0a8d4c4db6ad33a0132b473,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.5
+      value: 1.47
       objectReference: {fileID: 0}
     - target: {fileID: 2492262894901087107, guid: 2be57a78c0a8d4c4db6ad33a0132b473,
         type: 3}
@@ -90099,7 +90099,7 @@ PrefabInstance:
     - target: {fileID: 2492262894901087118, guid: 2be57a78c0a8d4c4db6ad33a0132b473,
         type: 3}
       propertyPath: restartFromCheckPoint
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2be57a78c0a8d4c4db6ad33a0132b473, type: 3}
@@ -90317,6 +90317,11 @@ PrefabInstance:
         type: 3}
       propertyPath: lastCheckPointPos.y
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8672493762961676759, guid: ce844ca519156ca44af05f24dc5539ac,
+        type: 3}
+      propertyPath: levelTimeInSeconds
+      value: 450
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce844ca519156ca44af05f24dc5539ac, type: 3}

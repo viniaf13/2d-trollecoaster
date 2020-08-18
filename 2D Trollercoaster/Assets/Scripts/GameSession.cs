@@ -5,7 +5,11 @@ using UnityEngine;
 public class GameSession : MonoBehaviour
 {
     [SerializeField] int playerLives = 3;
+    [SerializeField] float levelTimeInSeconds = 110f;
     [SerializeField] Vector3 lastCheckPointPos;
+
+    private int finalFruitScore;
+    private float finalTimeScore;
 
     //Singleton
     private void Awake()
@@ -22,6 +26,22 @@ public class GameSession : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        levelTimeInSeconds -= Time.deltaTime;
+    }
+    public void SaveSessionValues()
+    {
+        finalTimeScore = levelTimeInSeconds;
+        finalFruitScore = FindObjectOfType<ScoreDisplay>().GetScore();
+    }
+
+    public float[] GetSessionValues()
+    {
+        float[] sessionValues = new float[] {finalFruitScore, finalTimeScore};
+        return sessionValues;
+    }
+
     public void TakeLife()
     {
         playerLives--;
@@ -31,11 +51,6 @@ public class GameSession : MonoBehaviour
     public void ResetGameSession()
     {
         Destroy(gameObject);
-    }
-
-    public int GetPlayerLives()
-    {
-        return playerLives;
     }
 
     public void SetLastCP(Vector3 checkpointPos)
@@ -57,5 +72,15 @@ public class GameSession : MonoBehaviour
     public Vector3 GetLastCP()
     {
         return lastCheckPointPos;
+    }
+
+    public float GetCurrentLevelTime()
+    {
+        return levelTimeInSeconds;
+    }
+
+    public int GetPlayerLives()
+    {
+        return playerLives;
     }
 }

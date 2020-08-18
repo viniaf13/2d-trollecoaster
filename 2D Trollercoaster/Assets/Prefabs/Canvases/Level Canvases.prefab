@@ -1676,13 +1676,14 @@ GameObject:
   - component: {fileID: 1147258486}
   - component: {fileID: 1147258485}
   - component: {fileID: 1147258484}
+  - component: {fileID: 24722241}
   m_Layer: 5
   m_Name: Level Complete Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1147258483
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1767,6 +1768,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &24722241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147258482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b2274d00dd4cd4bb5de595cc4d9a17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fruitPoints: {fileID: 78393830}
+  timePoints: {fileID: 932807354}
+  totalPoints: {fileID: 148649538}
 --- !u!1 &1151358225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2521,7 +2537,7 @@ PrefabInstance:
     - target: {fileID: 7039675565064342688, guid: f8465167416413d4a8529dcc2c6253a8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7039675565064342697, guid: f8465167416413d4a8529dcc2c6253a8,
         type: 3}

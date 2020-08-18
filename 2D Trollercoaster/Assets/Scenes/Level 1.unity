@@ -42491,12 +42491,12 @@ PrefabInstance:
     - target: {fileID: 1578895407266751361, guid: cabe599a4ac665640aa730dd3dd73001,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 42.885864
+      value: 42.89347
       objectReference: {fileID: 0}
     - target: {fileID: 1578895407266751361, guid: cabe599a4ac665640aa730dd3dd73001,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.299642
+      value: -2.2996728
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cabe599a4ac665640aa730dd3dd73001, type: 3}
@@ -43268,23 +43268,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1147258482, guid: ce96c03f616905244a59b741ce917c67, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1147258485, guid: ce96c03f616905244a59b741ce917c67, type: 3}
-      propertyPath: m_ReferenceResolution.x
-      value: 1920
-      objectReference: {fileID: 0}
-    - target: {fileID: 1147258485, guid: ce96c03f616905244a59b741ce917c67, type: 3}
-      propertyPath: m_ReferenceResolution.y
-      value: 1080
-      objectReference: {fileID: 0}
-    - target: {fileID: 7007849114963679352, guid: ce96c03f616905244a59b741ce917c67,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7007849116369366693, guid: ce96c03f616905244a59b741ce917c67,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -43344,11 +43327,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Level Canvases
-      objectReference: {fileID: 0}
-    - target: {fileID: 7007849116369366694, guid: ce96c03f616905244a59b741ce917c67,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce96c03f616905244a59b741ce917c67, type: 3}

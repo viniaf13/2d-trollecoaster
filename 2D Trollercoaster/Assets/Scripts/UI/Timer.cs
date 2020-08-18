@@ -5,17 +5,18 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] float levelTimeInSeconds = 110f;
     [SerializeField] float timeAlert = 100f;
     [SerializeField] GameObject display = default;
 
     private TextMeshProUGUI timeText;
     private bool isRunningOutOfTime = false;
+    private GameSession gameSession;
 
     void Start()
     {
+        gameSession = FindObjectOfType<GameSession>();
         timeText = display.GetComponent<TextMeshProUGUI>();
-        timeText.text = levelTimeInSeconds.ToString("000");
+        timeText.text = gameSession.GetCurrentLevelTime().ToString("000");
     }
 
     void Update()
@@ -25,7 +26,7 @@ public class Timer : MonoBehaviour
 
     private void RunTimer()
     {
-        levelTimeInSeconds -= Time.deltaTime;
+        float levelTimeInSeconds = gameSession.GetCurrentLevelTime();
         timeText.text = levelTimeInSeconds.ToString("000");
         if (isRunningOutOfTime) return;
         if (levelTimeInSeconds <= timeAlert)
