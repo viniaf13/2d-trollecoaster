@@ -15836,6 +15836,81 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 2100000, guid: 8653246cbe2f63c4298536cc8ea521cb, type: 2}
+    - target: {fileID: 2290533038555610083, guid: a902fae135adc124298272bebac997ee,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290533038555610083, guid: a902fae135adc124298272bebac997ee,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 258.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290533038555610083, guid: a902fae135adc124298272bebac997ee,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1044.0864
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290533038555610083, guid: a902fae135adc124298272bebac997ee,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 284.9782
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290533038590718496, guid: a902fae135adc124298272bebac997ee,
+        type: 3}
+      propertyPath: m_text
+      value: Troll 2D Land
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290533038590718496, guid: a902fae135adc124298272bebac997ee,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290533038590718496, guid: a902fae135adc124298272bebac997ee,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290533038590718496, guid: a902fae135adc124298272bebac997ee,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290533038590718496, guid: a902fae135adc124298272bebac997ee,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290533038590718496, guid: a902fae135adc124298272bebac997ee,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290533038590718496, guid: a902fae135adc124298272bebac997ee,
+        type: 3}
+      propertyPath: m_margin.z
+      value: 15.731766
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290533038590718496, guid: a902fae135adc124298272bebac997ee,
+        type: 3}
+      propertyPath: m_margin.y
+      value: -67.77672
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290533038590718496, guid: a902fae135adc124298272bebac997ee,
+        type: 3}
+      propertyPath: m_margin.x
+      value: 37.93415
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290533038590718496, guid: a902fae135adc124298272bebac997ee,
+        type: 3}
+      propertyPath: m_margin.w
+      value: -120.18205
+      objectReference: {fileID: 0}
+    - target: {fileID: 2290533038590718496, guid: a902fae135adc124298272bebac997ee,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 2290533039654348431, guid: a902fae135adc124298272bebac997ee,
         type: 3}
       propertyPath: m_Camera
@@ -15851,6 +15926,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1127982680}
+    - target: {fileID: 5211093234390036521, guid: a902fae135adc124298272bebac997ee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a902fae135adc124298272bebac997ee, type: 3}
 --- !u!1001 &2492262893688974116
@@ -15924,6 +16004,11 @@ PrefabInstance:
         type: 3}
       propertyPath: jumpForce
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2492262894901087118, guid: 2be57a78c0a8d4c4db6ad33a0132b473,
+        type: 3}
+      propertyPath: restartFromCheckPoint
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2be57a78c0a8d4c4db6ad33a0132b473, type: 3}

@@ -28,6 +28,11 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        GameSession gameSession = FindObjectOfType<GameSession>();
+        if (gameSession)
+        {
+            gameSession.ResetGameSession();
+        }
         SceneManager.LoadScene(currentSceneIndex + 1);
         currentSceneIndex++;
     }
@@ -35,5 +40,17 @@ public class LevelLoader : MonoBehaviour
     public void RestartLevel()
     {
         StartCoroutine(LoadLevelWithDelay(currentSceneIndex));
+    }
+
+    public void LoadMainMenu()
+    {
+        Debug.Log("PASSOU");
+        GameSession gameSession = FindObjectOfType<GameSession>();
+        if (gameSession)
+        {
+            gameSession.ResetGameSession();
+        }
+        currentSceneIndex = 0;
+        SceneManager.LoadScene(currentSceneIndex); //TODO: FIX MAGIC NUMBER
     }
 }

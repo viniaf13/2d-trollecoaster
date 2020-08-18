@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
         gameSession = FindObjectOfType<GameSession>();
         audioListener = GameObject.FindWithTag(Constants.Tags.AudioListener);
 
-        if (restartFromCheckPoint)
+        if (restartFromCheckPoint && gameSession)
         {
             transform.position = gameSession.GetLastCP();
         }  
@@ -110,7 +110,6 @@ public class Player : MonoBehaviour
     {
         if (!isAlive) { return; }
         bool playerHasYMovement = !IsGrounded();
-        Debug.Log(playerHasYMovement);
         if (playerHasYMovement)
         {
             bool isHeJumping = (Mathf.Sign(rigidBody.velocity.y) > 0);

@@ -7,7 +7,6 @@ public class GameSession : MonoBehaviour
     [SerializeField] int playerLives = 3;
     [SerializeField] Vector3 lastCheckPointPos;
 
-    private LevelLoader levelLoader;
     //Singleton
     private void Awake()
     {
@@ -23,20 +22,14 @@ public class GameSession : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        levelLoader = GetComponent<LevelLoader>();
-    }
-
     public void TakeLife()
     {
         playerLives--;
-        levelLoader.RestartLevel();
+        FindObjectOfType<LevelLoader>().RestartLevel();
     }
 
     public void ResetGameSession()
     {
-        //Load Main Menu
         Destroy(gameObject);
     }
 
@@ -65,5 +58,4 @@ public class GameSession : MonoBehaviour
     {
         return lastCheckPointPos;
     }
-    
 }

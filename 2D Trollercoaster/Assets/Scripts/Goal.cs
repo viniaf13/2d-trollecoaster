@@ -13,7 +13,7 @@ public class Goal : MonoBehaviour
             GetComponent<Animator>().SetTrigger(Constants.Animations.Touched);
             player.GrantPlayerControl(false);
             player.SetPlayerVelocity(Vector2.zero);
-            FindObjectOfType<LevelLoader>().RestartLevel();
+            FindObjectOfType<CanvasController>().SwitchCanvas(2); //TODO: Fix magic number
         }
     }
 }

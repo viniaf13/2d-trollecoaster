@@ -20,4 +20,19 @@ public class CanvasController : MonoBehaviour
             }
         }
     }
+
+    public void SwitchCanvas(int targetCanvasIndex)
+    {
+        for (int currentCanvas = 0; currentCanvas < sceneCanvases.Count; currentCanvas++)
+        {
+            if (currentCanvas != targetCanvasIndex)
+            {
+                sceneCanvases[currentCanvas].SetActive(false);
+            }
+            else
+            {
+                sceneCanvases[currentCanvas].SetActive(true);
+            }
+        }
+    }
 }
